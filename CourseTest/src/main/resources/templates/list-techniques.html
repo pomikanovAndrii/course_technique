@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Список Техники</title>
+</head>
+<body>
+<h1>Список Техники</h1>
+<table>
+    <tr>
+        <th>Название</th>
+        <th>Цена аренды</th>
+        <th>Вместимость</th>
+        <th>Максимальная скорость</th>
+        <th>Действия</th>
+    </tr>
+    <tr th:each="technique : ${techniques}">
+        <td th:text="${technique.title}"></td>
+        <td th:text="${technique.rentPrice}"></td>
+        <td th:text="${technique.people}"></td>
+        <td th:text="${technique.speed}"></td>
+        <td><a th:href="@{/technique/details/{id}(id=${technique.id})}">Подробнее</a></td>
+    </tr>
+</table>
+<a th:href="@{/technique/add}">Добавить Технику</a>
+</body>
+</html>

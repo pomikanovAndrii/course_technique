@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Добавление Техники</title>
+</head>
+<body>
+<h1>Добавление Техники</h1>
+<form method="post" action="/technique/add"  th:object="${technique}">
+  <label for="title">Название:</label>
+  <input type="text" id="title" name="title" th:field="*{title}" required><br>
+
+  <label for="rentPrice">Цена аренды:</label>
+  <input type="number" id="rentPrice" name="rentPrice" th:field="*{rentPrice}" required><br>
+
+  <label for="people">Вместимость:</label>
+  <input type="number" id="people" name="people" th:field="*{people}" required><br>
+
+  <label for="speed">Максимальная скорость:</label>
+  <input type="number" id="speed" name="speed" th:field="*{speed}" required><br>
+
+  <label for="description">Описание:</label>
+  <textarea id="description" name="description" th:field="*{description}" required></textarea><br>
+
+  <input type="submit" value="Добавить">
+</form>
+<a th:href="@{/technique/list}">Назад к списку</a>
+</body>
+</html>
